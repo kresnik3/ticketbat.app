@@ -1,0 +1,28 @@
+<ion-header>
+  <ion-navbar></ion-navbar>
+  <ion-fab right bottom style="top:0px">
+    <button ion-fab (click)="refresh()"><ion-icon name="refresh"></ion-icon></button>
+  </ion-fab>
+</ion-header>
+
+<ion-content padding>
+
+  <div style="text-align:center" *ngIf="!purchases.length">
+    <br><br><ion-icon item-left name="checkmark-circle"></ion-icon>
+    <br><br>There are no tickets to check for this event.
+    <br><br><ion-icon item-left name="sad"></ion-icon>
+  </div>
+
+  <ion-list padding>
+    <ion-card *ngFor="let p of purchases" class="description">
+      <ion-card-header ion-item>
+        <ion-icon item-left name="contact"></ion-icon>{{p.first_name}} {{p.last_name}}
+        <button ion-button clear item-right icon-only [disabled]="p.checked >= p.tickets" (click)="goToMyListChecker(p.id,p.to_check)">
+          <ion-icon item-right name="play" color="danger"></ion-icon>
+        </button>
+      </ion-card-header>
+      <h3 style="margin-left:20px;padding:10px 0;"><ion-icon item-left name="pricetags"></ion-icon>&nbsp;&nbsp;{{p.checked}} / {{p.tickets}}&nbsp;&nbsp;&nbsp;({{p.ticket_type_type}})</h3>
+    </ion-card>
+  </ion-list>
+
+</ion-content>

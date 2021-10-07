@@ -1,0 +1,45 @@
+<ion-header>
+  <ion-navbar></ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+  <ion-card class="description">
+    <ion-card-header ion-item>
+      <ion-icon item-left name="create"></ion-icon>Select event to check.
+    </ion-card-header>
+    <ion-list>
+      <ion-item class="inputs">
+        <ion-label><ion-icon name="globe"></ion-icon> Venue</ion-label>
+        <ion-select [(ngModel)]="venue" (ionChange)="selectVenue()">
+          <ion-option value="" selected="true">-Select-</ion-option>
+          <ion-option *ngFor="let v of venues" value="{{v.id}}" >{{v.name}}</ion-option>
+        </ion-select>
+      </ion-item>
+      <ion-item class="inputs">
+        <ion-label><ion-icon name="aperture"></ion-icon> Show</ion-label>
+        <ion-select [(ngModel)]="show" (ionChange)="selectShow()">
+          <ion-option value="" selected="true">-Select-</ion-option>
+          <ion-option *ngFor="let s of shows" value="{{s.id}}" >{{s.name}}</ion-option>
+        </ion-select>
+      </ion-item>
+      <ion-item class="inputs">
+        <ion-label><ion-icon name="calendar"></ion-icon> Date</ion-label>
+        <ion-select [(ngModel)]="showtime">
+          <ion-option value="" selected="true">-Select-</ion-option>
+          <ion-option *ngFor="let st of showtimes" value="{{st.id}}" >{{st.show_time | date:'EEE, M/d/yyyy @ h:mma'}}</ion-option>
+        </ion-select>
+      </ion-item>
+    </ion-list>
+  </ion-card>
+    <div class="scan-tickets">
+      <button style="margin:auto;" ion-fab large (click)="goToMyScanner()" [disabled]="showtime==''"><ion-icon name="qr-scanner"></ion-icon></button>
+      <br/>Scan Tickets
+    </div>
+
+    <div class="scan-tickets">
+      <button style="margin:auto;" ion-fab large (click)="goToMyList()" color="danger" [disabled]="showtime==''"><ion-icon name="list"></ion-icon></button>
+      <br/>View List
+    </div>
+</ion-content>
+

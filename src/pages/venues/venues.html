@@ -1,0 +1,31 @@
+<ion-header>
+  <ion-navbar></ion-navbar>
+  <ion-searchbar class="shows-search" [(ngModel)]="search" placeholder="Search" (ionInput)="searchItems()"></ion-searchbar>
+  <ion-fab class="filter-btn">
+    <button ion-fab mini color="success"><ion-icon name="options"></ion-icon></button>
+
+    <ion-fab-list class="tb-filter">
+      <ion-item button round color="light">
+        <ion-label><ion-icon name="pin"></ion-icon> <b [innerHTML]=" (location=='All')? 'All locations' : location"></b></ion-label>
+        <ion-select [(ngModel)]="location" (ionChange)="updateLocation()" style="width:0px !important;">
+          <ion-option value="All" hidden="true">All locations</ion-option>
+          <ion-option *ngFor="let c of cities" value="{{c.city}}" hidden="true">{{c.city}}</ion-option>
+        </ion-select>
+      </ion-item>
+    </ion-fab-list>
+  </ion-fab>
+</ion-header>
+
+<ion-content padding>
+
+  <ion-card *ngFor="let v of venues" (click)="goToShowsVenue(v.id)">
+    <div class="venue-logo"><img src="{{v.url}}"/></div>
+    <div class="venue-info">
+      <div class="venue-titles">
+        <div class="show-name">{{v.name}}</div>
+        <div class="show-city">{{v.city}}</div>
+      </div>
+    </div>
+  </ion-card>
+
+</ion-content>

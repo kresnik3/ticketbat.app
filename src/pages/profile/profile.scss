@@ -1,0 +1,72 @@
+page-profile {
+	.description {
+	    background-color: #fff !important;
+	    color: #000 !important;
+	    border: 3px white solid;
+	    border-radius: 15px;
+	    font-family: oswald!important;
+	    font-size: 12px!important;
+	    line-height: 18px;
+	}
+	.text-input-md {
+	    margin: 13px 8px 13px 8px;
+	    padding: 0;
+	    width: calc(100% - 8px - 8px);
+	    color:#000;
+	}
+	.item-md {
+		border-bottom:1px solid #ccc;
+	}
+	.label-md {
+	    margin: 13px 8px 13px 0;
+	}
+
+	.item > ion-icon:first-child, .item-inner > ion-icon:first-child {
+	    min-width: 24px;
+	    text-align: center;
+	    color: #666;
+	}
+	[padding] h1:first-child, [padding] h2:first-child, [padding] h3:first-child, [padding] h4:first-child, [padding] h5:first-child, [padding] h6:first-child {
+    	margin-top: -.3rem;
+    	color: #000!important;
+	}
+	.item-md p {
+	    overflow: inherit;
+	    margin: 0 0 2px;
+	    font-size: 1.4rem;
+	    line-height: normal;
+	    text-overflow: inherit;
+	    color: #666!important;
+	}
+	.profile-titles{
+		font-family: oswald;
+		font-size: 14px;
+		line-height: 24px;
+	}
+	form, input, optgroup, select {
+	    margin: 0;
+	    font: inherit;
+	    color: #000;
+	}
+	.label-ios {
+	    margin: 11px 8px 11px 0;
+	    color: #000!important;
+	}
+	.profile-hello{
+		font-family: oswald;
+		font-size:14px;
+		line-height: 18px;
+	}
+	.profile-country{
+		font-family: oswald;
+		font-size:14px;
+		line-height: 18px;
+	}
+	.label-ios + ion-input .text-input, .label-ios + ion-textarea .text-input, .label-ios + .input + .cloned-input {
+	    margin-left: 16px;
+	    width: calc(100% - (16px / 2) - 16px);
+	    font-size: 12px;
+	    line-height: 18px;
+	    font-family: oswald;
+	}
+}

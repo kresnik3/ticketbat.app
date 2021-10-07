@@ -1,0 +1,70 @@
+<ion-header>
+  <ion-navbar></ion-navbar>
+</ion-header>
+<ion-fab class="filter-btn">
+  <button ion-fab (click)="shareSocialMedia()"><ion-icon name="share"></ion-icon></button>
+</ion-fab>
+<ion-content padding class="show-col">
+  <!--  header -->
+<!--   <div class="show-info">
+
+  </div> -->
+  <ion-card style="text-align:center;">
+    <div class="show-name">{{event.name}}</div>
+    <div class="show-desc">View Seating Chart Below</div>
+    <div class="show-time">{{event.show_time | date:'EEEE, MMMM d, y'}}</div>
+    <ion-list radio-group [(ngModel)]="event_id">
+      <button ion-item *ngFor="let tm of event.times, let i = index">
+        <ion-icon name="clock" item-left></ion-icon>
+        <ion-label class="ticket-time">{{tm.s_time}}</ion-label>
+        <ion-radio large [checked]="i == 0" value="{{tm.id}}"></ion-radio>
+      </button>
+    </ion-list>
+  </ion-card>
+
+  <!--  sections -->
+  <ion-card *ngFor="let ty of event.types" style="text-align:center;" class="description">
+      <ion-card-header [class]="ty.class" style="font-family:oswald;text-align:center;padding:10px 0;">{{ty.type}}</ion-card-header>
+      <ion-list radio-group [(ngModel)]="ticket_id">
+        <button ion-item *ngFor="let tk of ty.tickets, let i = index">
+          <ion-icon name="pricetag" item-left></ion-icon>
+          <ion-label *ngIf="tk.amount"><p class="ticket-txt">$ {{tk.amount|number:'1.2-2'}} {{tk.title}}</p></ion-label>
+          <ion-label *ngIf="!tk.amount">FREE <p style="font-family:oswald; text-align:center; font-size:8px">{{tk.title}}</p></ion-label>
+          <ion-radio large [checked]="i == 0" value="{{tk.id}}" (click)="amount = tk.amount;"></ion-radio>
+        </button>
+      </ion-list>
+  </ion-card>
+  <!--  qty/total -->
+  <ion-row style="text-align:center;">
+    <ion-col col-3>
+      <button ion-button large icon-only strong round color="danger" (click)="qty=(qty>1)? qty-1 : 1;">
+        <ion-icon name="remove"></ion-icon>
+      </button>
+    </ion-col>
+    <ion-col col-6 style="color:black;">
+      <div>Quantity
+        <div class="ticket-qty">{{qty}}</div>
+      </div>
+      <div style="margin-top:-10px">
+        Total
+        <div class="ticket-price">${{(amount*qty)|number:'1.2-2'}}</div>
+      </div>
+    </ion-col>
+    <ion-col col-3 >
+        <button ion-button large icon-only strong round color="secondary" (click)="qty=(qty<maxqty)? qty+1 : maxqty;">
+          <ion-icon name="add"></ion-icon>
+        </button>
+    </ion-col>
+  </ion-row>
+  <!--  add -->
+  <div padding ion-button large block color="primary"  class="get-tickets-show-btn" (click)="add()">
+    <ion-label>Add to the Cart</ion-label>
+    <ion-icon name="play"></ion-icon>
+  </div>
+
+  <!--  header -->
+  <div class="show-seating">
+    <img src="{{event.url}}"/>
+  </div>
+
+</ion-content>

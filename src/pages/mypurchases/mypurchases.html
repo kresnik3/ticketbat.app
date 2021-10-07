@@ -1,0 +1,41 @@
+<ion-header>
+  <ion-navbar></ion-navbar>
+  <ion-fab right bottom style="top:-1px;">
+    <button ion-fab (click)="refresh()"><ion-icon name="refresh"></ion-icon></button>
+  </ion-fab>
+</ion-header>
+
+<ion-content>
+
+  <div style="text-align:center" *ngIf="!purchases.length">
+    <br><br><ion-icon item-left name="pricetags"></ion-icon>
+    <br><br>You have no purchases to list.<br>Please, buy some tickets!
+    <br><br><ion-icon item-left name="happy"></ion-icon>
+  </div>
+
+  <ion-list padding>
+    <ion-card *ngFor="let p of purchases; let i = index;" class="description">
+      <ion-card-header ion-item>
+        <ion-label>
+          <ion-icon item-left name="cart" color="danger"></ion-icon>{{purchases.length - i}}
+        </ion-label>
+        <ion-label style="margin-left:-150px">
+          <ion-icon item-left name="clock" color="danger"></ion-icon>{{p.created | date:'M/d/yyyy'}}@{{p.created | date:'h:mma'}}
+        </ion-label>
+      </ion-card-header>
+      <ion-card-content>
+        <ion-fab right edge  *ngIf="p.tickets">
+          <button style="top:-25px" ion-fab color="danger" (click)="goToMyTickets(p.tickets)"><ion-icon name="pricetags"></ion-icon></button>
+        </ion-fab>
+        <p><ion-icon item-left name="globe"></ion-icon> {{p.venue_name}}</p>
+        <p><ion-icon item-left name="aperture"></ion-icon> {{p.show_name}}</p>
+        <p><ion-icon item-left name="calendar"></ion-icon> {{p.show_time | date:'MMM d,yyyy'}} @ {{p.show_time | date:'h:mma'}}</p>
+        <p>
+          <ion-icon item-left name="pricetags"></ion-icon> {{p.quantity}} ticket(s) {{p.ticket_type_type}}
+          <ion-icon item-left name="cash" ></ion-icon> $ {{p.amount|number:'1.2-2'}}
+        </p>
+      </ion-card-content>
+    </ion-card>
+  </ion-list>
+
+</ion-content>

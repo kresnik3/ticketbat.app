@@ -1,0 +1,42 @@
+<ion-header>
+  <ion-navbar></ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+
+  <p>If you have any issues with the application, please fill out this form with the information
+  and our manager will contact you.</p>
+      <ion-card class="description">
+          <ion-card-header ion-item>
+            <ion-icon item-left name="help-circle"></ion-icon>Contact Us
+          </ion-card-header>
+          <ion-list inset>
+            <ion-item class="inputs">
+              <ion-label><ion-icon name="person"></ion-icon></ion-label>
+              <ion-input [(ngModel)]="name" placeholder="Write your name here" type="text" required="true"></ion-input>
+            </ion-item>
+            <ion-item class="inputs">
+              <ion-label><ion-icon name="mail"></ion-icon></ion-label>
+              <ion-input [(ngModel)]="email" placeholder="Email" type="email" required="true"></ion-input>
+            </ion-item>
+            <ion-item class="inputs">
+              <ion-label><ion-icon name="call"></ion-icon></ion-label>
+              <ion-input [(ngModel)]="phone" placeholder="Phone number" type="phone" required="true"></ion-input>
+            </ion-item>
+            <ion-item class="inputs">
+              <ion-label><ion-icon name="aperture"></ion-icon></ion-label>
+              <ion-input [(ngModel)]="show_name" placeholder="Name of the venue/show" type="text" required="true"></ion-input>
+            </ion-item>
+            <ion-item class="inputs">
+              <ion-label><ion-icon name="text"></ion-icon></ion-label>
+              <ion-input [(ngModel)]="message" placeholder="Write your message" type="text" required="true"></ion-input>
+            </ion-item>
+          </ion-list>
+      </ion-card>
+
+      <div padding ion-button block color="light" (click)="send()" style="font-family:oswald;width:90%;margin:auto;margin-bottom:20px">
+        <ion-label>Send Email</ion-label>
+        <ion-icon name="mail"></ion-icon>
+      </div>
+</ion-content>

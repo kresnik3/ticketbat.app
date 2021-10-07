@@ -1,0 +1,208 @@
+// http://ionicframework.com/docs/v2/theming/
+
+
+// App Global Sass
+// --------------------------------------------------
+// Put style rules here that you want to apply globally. These
+// styles are for the entire app and not just one component.
+// Additionally, this file can be also used as an entry point
+// to import other Sass files to be included in the output CSS.
+//
+// Shared Sass variables, which can be used to adjust Ionic's
+// default Sass variables, belong in "theme/variables.scss".
+//
+// To declare rules for a specific mode, create a child rule
+// for the .md, .ios, or .wp mode classes. The mode class is
+// automatically applied to the <body> element in the app.
+
+@font-face {
+    font-family: 'Oswald';
+    src: url('../assets/fonts/oswald-regular-webfont.woff2') format('woff2'),
+         url('../assets/fonts/oswald-regular-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+.toolbar-background {
+  background: url('../images/header-logo.jpg') black center center no-repeat  !important;
+  background-size: contain !important;
+  color: white !important;
+}
+.bar-button {
+  color: white !important;
+}
+
+.tabbar {
+  background: #48a24a !important;
+}
+
+.description {
+  background:transparent !important;
+  color: white !important;
+  border:3px white solid;
+  border-radius: 15px;
+}
+.fab-ios {
+    color: #fff;
+    background-color: #000 !important;
+}
+.tabs-ios .tab-button[aria-selected=true] .tab-button-icon {
+    color: #000 !important;
+}
+.tabs-ios .tab-button {
+    padding: 0 2px;
+    max-width: 240px;
+    min-height: 49px;
+    font-size: 10px;
+    color: #fff !important;
+}
+.tabs-ios .tab-button-icon {
+    margin-top: 4px;
+    margin-bottom: 1px;
+    min-width: 35px;
+    height: 30px;
+    font-size: 30px;
+    color: #fff !important;
+}
+.restriction {
+  background: #f53d3d !important;
+  color: white !important;
+  font-weight: bold !important;
+  text-align: center;
+}
+.item-md.item-block .item-inner {
+    padding-right: 8px;
+    border-bottom: 0px solid #dedede !important;
+}
+.totals {
+  background:transparent !important;
+}
+
+.inputs {
+  background:transparent !important;
+  color: white !important;
+  margin:-10px 0 0 0 !important;
+  border-bottom-color: transparent !important;
+}
+
+ion-content {
+  background-color: #dadada !important;
+  color:DarkSlateGray !important;
+}
+.item-md-light {
+  color: #fff  !important;
+}
+ion-item {
+  background-color: #fff !important;
+  padding: 0 5px 0 0;
+}
+
+h2 {
+  font-weight: bold !important;
+}
+.tabs-md .tab-button-icon {
+  color: rgba(255, 255, 255, 0.7);
+}
+.tabs-md .tab-button {
+  padding: 0;
+  min-height: 5.6rem;
+  font-weight: normal;
+  color: rgba(255, 255, 255, 0.7) !important;
+}
+.scroll-content {
+    padding: 0px !important;
+}
+.fab-md {
+    color: #fff;
+    background-color: #000 !important;
+}
+.tabs-md .tab-button[aria-selected="true"] .tab-button-icon {
+  color: #000;
+}
+.show-info{
+  padding:20px;
+  overflow: auto;
+}
+.venue-info{
+  padding:20px;
+  overflow: auto;
+  border-top: 1px solid #dadada;
+}
+.show-titles{
+  width:75%;
+  float:left;
+}
+.venue-titles{
+  width:100%;
+  text-align: center;
+}
+.show-pricing{
+  width:25%;
+  float:left;
+  text-align: right;
+}
+.show-name{
+  font-family: "Oswald", serif;
+  font-size:18px;
+  color:#000;
+  text-transform: uppercase;
+}
+.show-city{
+  font-family: "Oswald", serif;
+  font-size:12px;
+  color:#000;
+  font-weight: 200;
+}
+.show-price{
+  color:#48a24a;
+  font-family: "Oswald", serif;
+  font-size:24px; 
+}
+.show-starting{
+  font-family: "Oswald", serif;
+  font-size:10px;
+  color:#000;
+  font-weight: 500;
+  text-transform: uppercase;
+  line-height: 8px;
+  padding: 5px 0;
+}
+.shows-search{
+  width:100%;
+}
+.filter-btn{
+  right:0;
+  top:0;
+  margin: 0 5px 0 0;
+}
+.tb-filter{
+  right: 0;
+  top:-5px;
+}
+.venue-logo{
+  width:40%;
+  margin:auto;
+  padding: 20px 0;
+  min-height: 100px;
+}
+.venue-logo img{
+  width:100%;
+}
+.ticket-price{
+  font-family:"Oswald", serif;
+  color:#48a24a ;
+  font-size: 24px;
+  text-align: center;
+}
+.ticket-qty{
+  font-family:"Oswald", serif;
+  color:#48a24a;
+  font-size: 14px;
+  text-align: center;
+  display: block;
+  padding: 0 10px 10px;
+}
+.cart-col{
+  padding:10px;
+  color:#000;
+  margin: 5px;
+}

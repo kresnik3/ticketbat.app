@@ -1,0 +1,36 @@
+page-help {
+
+	p {
+		color: #000 !important;
+		margin: 20px;
+	}
+	.description {
+	    background-color:#fff !important;
+	    color: #000 !important;
+	    border: 2px #fff solid;
+	    border-radius: 15px;
+	}
+	.item-input ion-input, .item-input ion-textarea {
+	    position: static;
+	    color: #000;
+	}
+	.item-md {
+	    position: relative;
+	    padding-right: 0;
+	    padding-left: 16px;
+	    font-size: 1.6rem;
+	    font-weight: normal;
+	    text-transform: none;
+	    color: #000;
+	    background-color: #fff;
+	    box-shadow: none;
+	    transition: background-color 300ms cubic-bezier(0.4, 0, 0.2, 1);
+	    border-bottom: 1px solid #ccc;
+	}
+	.input-wrapper{
+		font-family: oswald;
+		color:#000;
+		font-size: 14px;
+		line-height: 18px;
+	}
+}

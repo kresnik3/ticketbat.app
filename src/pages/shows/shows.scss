@@ -1,0 +1,28 @@
+page-shows {
+	h3 {
+		color: white !important;
+		font-weight: bold;
+	}
+	.get-tickets-show-btn {
+		width: 96%;
+		margin: 0 2% 10px;
+		background: #3474e1;
+		padding: 15px 0 10px;
+		text-align: center;
+		color: #fff;
+		text-transform: uppercase;
+		font-family: "oswald", serif;	
+	}
+	.show-pricing{
+		text-align: center;
+	}
+}
+.toolbar-ios {
+    //workaround: statusbar height is too small on root view without home button
+    // -> manually set min-height on root view (verified on iOS 10)
+    min-height: 56px!important;
+}
+.toolbar-md {
+    padding: 4px;
+    min-height: 56px;
+}

@@ -1,0 +1,120 @@
+<ion-header>
+    <ion-navbar></ion-navbar>
+</ion-header>
+
+<ion-content padding style="text-align:center">
+  <!-- login form -->
+  <ion-card *ngIf="form == 0" class="description">
+    <ion-card-header ion-item>
+      <ion-icon item-left name="key"></ion-icon><span class="profile-hello">Login</span>
+    </ion-card-header>
+    <ion-list inset>
+      <ion-item class="inputs">
+        <ion-label><ion-icon name="mail"></ion-icon></ion-label>
+        <ion-input [(ngModel)]="email" placeholder="Email" type="email" required="true"></ion-input>
+      </ion-item>
+      <ion-item class="inputs">
+        <ion-label><ion-icon name="lock"></ion-icon></ion-label>
+        <ion-input [(ngModel)]="password" placeholder="Password" type="password" required="true"></ion-input>
+      </ion-item>
+    </ion-list>
+    <div padding ion-button block  color="primary" (click)="login()" style="width:80%;margin:auto;margin-bottom:20px">
+      <ion-label>Login</ion-label>
+      <ion-icon name="contact"></ion-icon>
+    </div>
+  </ion-card>
+  <div padding ion-button block  color="secondary" (click)="form = -1" *ngIf="form == 0" style="font-family:oswald;width:75%;margin:auto;margin-top:30px">
+    <ion-label>Register</ion-label>
+    <ion-icon name="person-add"></ion-icon>
+  </div>
+  <ion-label *ngIf="form == 0" (click)="recover()" color="dark">Forgot your password?</ion-label>
+
+<!-- register form -->
+<ion-card *ngIf="form == -1" class="description">
+  <ion-card-header ion-item>
+    <ion-icon item-left name="person-add"></ion-icon><span class="profile-hello">Register</span>
+  </ion-card-header>
+  <ion-list inset>
+    <ion-item class="inputs">
+      <ion-label><ion-icon name="mail"></ion-icon></ion-label>
+      <ion-input [(ngModel)]="email" placeholder="Email" type="email" required="true"></ion-input>
+    </ion-item>
+    <ion-item class="inputs">
+      <ion-label><ion-icon name="person-add"></ion-icon></ion-label>
+      <ion-input [(ngModel)]="first_name" placeholder="John" type="text" required="true"></ion-input>
+    </ion-item>
+    <ion-item class="inputs">
+      <ion-label><ion-icon name="person-add"></ion-icon></ion-label>
+      <ion-input [(ngModel)]="last_name" placeholder="Doe" type="text" required="true"></ion-input>
+    </ion-item>
+    <ion-item class="inputs">
+      <ion-label><ion-icon name="lock"></ion-icon></ion-label>
+      <ion-input [(ngModel)]="password" placeholder="Password" type="password" required="true"></ion-input>
+    </ion-item>
+    <ion-item class="inputs">
+      <ion-label><ion-icon name="compass"></ion-icon></ion-label>
+      <ion-input [(ngModel)]="address" placeholder="000 Main St." type="text" required="true"></ion-input>
+    </ion-item>
+    <ion-item class="inputs">
+      <ion-label><ion-icon name="compass"></ion-icon></ion-label>
+      <ion-input [(ngModel)]="city" placeholder="Las Vegas" type="text" required="true"></ion-input>
+    </ion-item>
+    <ion-item class="inputs">
+      <ion-label><ion-icon name="compass"></ion-icon></ion-label>
+      <ion-input [(ngModel)]="region" placeholder="NV" type="text" required="true"></ion-input>
+    </ion-item>
+    <ion-item class="inputs" style="left:-15px">
+      <ion-label><ion-icon name="compass"><span class="profile-country"> &nbsp; &nbsp;Country</span></ion-icon></ion-label>
+      <ion-select [(ngModel)]="country">
+        <ion-option *ngFor="let c of countries" value="{{c.code}}">{{c.name}}</ion-option>
+      </ion-select>
+    </ion-item>
+    <ion-item class="inputs">
+      <ion-label><ion-icon name="compass"></ion-icon></ion-label>
+      <ion-input [(ngModel)]="zip" placeholder="12345" type="number" required="true"></ion-input>
+    </ion-item>
+  </ion-list>
+  <div padding ion-button block  color="secondary" (click)="register()" style="width:80%;margin:auto;margin-bottom:20px">
+    <ion-label>Register</ion-label>
+    <ion-icon name="person-add"></ion-icon>
+  </div>
+</ion-card>
+<div padding ion-button block  color="light" (click)="form = 0" *ngIf="form == -1" style="font-family:oswald;width:75%;margin:auto;margin-top:30px">
+  <ion-label>Cancel</ion-label>
+  <ion-icon name="key"></ion-icon>
+</div>
+<!-- options form -->
+<ion-card *ngIf="form == 1" class="description">
+  <ion-list>
+    <ion-card-header ion-item>
+      <ion-icon item-left name="contact"></ion-icon><span class="profile-hello">Hi, {{user.first_name}} {{user.last_name}}</span>
+    </ion-card-header>
+    <ion-item style="top:20px" (click)="goToMyPurchases()"  class="inputs">
+      <ion-icon item-left name="cart"></ion-icon>
+      <div>
+        <h3 class="profile-titles">My Purchases</h3>
+        <p>-List all your purchases.</p>
+      </div>
+      <ion-icon name="play" color="danger" item-right></ion-icon>
+    </ion-item>
+    <ion-item style="top:20px" (click)="goToMyChecker()" *ngIf="user?.user_type_id==1 || user?.user_type_id==5 || user?.user_type_id==7"  class="inputs">
+      <ion-icon item-left name="create"></ion-icon>
+      <div>
+        <h3 class="profile-titles">Event Checker</h3>
+        <p>- Scan tickets.<br>- Check customer's list.</p>
+      </div>
+      <ion-icon name="play" color="danger" item-right></ion-icon>
+    </ion-item>
+    <ion-item style="top:20px" (click)="change()" class="inputs">
+      <ion-icon item-left name="lock"></ion-icon>
+      <div><h3 class="profile-titles">Change your password</h3></div>
+      <ion-icon name="play" color="danger" item-right></ion-icon>
+    </ion-item>
+  </ion-list>
+  <div padding ion-button block  color="danger" (click)="logout()" style="font-family:oswald;width:90%;margin:auto;margin-top:20px;margin-bottom:20px">
+    <ion-label>Logout</ion-label>
+    <ion-icon name="key"></ion-icon>
+  </div>
+</ion-card>
+
+</ion-content>

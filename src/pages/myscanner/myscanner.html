@@ -1,0 +1,24 @@
+<ion-header>
+  <ion-navbar></ion-navbar>
+  <ion-fab right bottom style="top:0px">
+    <button ion-fab (click)="scan()"><ion-icon name="qr-scanner"></ion-icon></button>
+  </ion-fab>
+</ion-header>
+
+<ion-content padding>
+
+  <ion-card class="description">
+    <ion-card-header ion-item *ngIf="access">
+      <ion-icon item-left name="barcode"></ion-icon>Event #{{i+1}}
+      <h2 [innerHTML]="header"></h2>
+    </ion-card-header>
+    <ion-card-header ion-item color="danger" *ngIf="!access">
+      <ion-icon item-left name="barcode"></ion-icon>
+      <h2 [innerHTML]="header"></h2>
+    </ion-card-header>
+    <ion-card-content>
+      <h3 [innerHTML]="msg"></h3>
+    </ion-card-content>
+  </ion-card>
+
+</ion-content>

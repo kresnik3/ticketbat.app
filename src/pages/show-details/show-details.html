@@ -1,0 +1,68 @@
+<ion-header>
+  <ion-navbar></ion-navbar>
+</ion-header>
+  <ion-fab class="filter-btn">
+    <button ion-fab (click)="shareSocialMedia()"><ion-icon name="share"></ion-icon></button>
+  </ion-fab>
+<ion-content>
+
+  <!--  images  -->
+<!--   <ion-slides style="height:40%; background-color:#000;" *ngIf="show.images?.length > 1" class="imagesS" pager effect="slide" loop="true">
+    <ion-slide *ngFor="let i of show.images">
+      <img style="max-height:40%" src="{{i.url}}"/>
+    </ion-slide>
+  </ion-slides> -->
+  <div *ngIf="header">
+    <img style="max-height:40%" src="{{header}}"/>
+  </div>
+    <!--  restrictions  -->
+    <div *ngIf="show && show.restrictions && show.restrictions != 'None' " class="restrict-txt">
+        <ion-icon name="information-circle"></ion-icon> RESTRICTIONS: {{show.restrictions.replace('Over','')}}  years of age or older to attend the event.
+    </div>
+
+  <!--  calendar  -->
+  <div class="show-dates" *ngIf="show.showtimes?.length > 0">    
+    <ion-slides class="calendarS" slidesPerView="5" >
+      <ion-slide *ngFor="let st of show.showtimes, let i = index">
+          <div class="calendar" (click)="goToBuy(st.s_date)">
+            <img [class]="(i == 0)? 'stIconSelected' : 'stIconRegular'" src="images/calendar-icon.png"/>
+            <div class="calendarW">{{st.s_date | date:'EEE'}}</div>
+            <div class="calendarD">{{st.s_date | date:'MMM'}}<br>{{st.s_date | date:'d'}}</div>
+            <div class="calendarM">{{st.s_date | date:'yyyy'}}</div>
+          </div>
+      </ion-slide>
+    </ion-slides>
+  </div>
+  <!-- images -->
+  <ion-slides style="height:75%;" *ngIf="show.images?.length > 1" class="imagesS" pager effect="slide" loop="true">
+    <ion-slide *ngFor="let i of show.images">
+      <img style="max-height:40%" src="{{i.url}}"/>
+    </ion-slide>
+  </ion-slides>
+  <!--  videos -->
+  <ion-list *ngIf="show.videos?.length > 0">
+    <ion-card *ngFor="let v of show.videos">
+        <div class="video-container">
+            <iframe [src]="v.embed_code" frameborder="0"></iframe>
+        </div>
+    </ion-card>
+  </ion-list>
+  <!--  description  -->
+  <div class="show-col" *ngIf="show?.description">
+    <div [innerHTML]="show.description"></div>
+  </div>
+  <!--  maps  -->
+  <ion-card *ngIf="show?.lat && show?.lng" style="background-color: rgba(0,0,0,0.8);">
+    <a style="text-decoration:none;" href="https://www.google.com/maps/place/{{show.lat}},{{show.lng}}" target="_system">
+    <ion-item style="background:transparent !important" >
+      <ion-icon item-left color="danger" name="map"></ion-icon>
+      <div>
+        <h3><b>{{show.venue}}</b></h3>
+        <p>{{show.address}}</p>
+        <p>{{show.city}}, {{show.state}}, {{show.country}} {{show.zip}}</p>
+      </div>
+    </ion-item>
+    </a>
+  </ion-card>
+
+</ion-content>

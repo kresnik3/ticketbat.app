@@ -1,0 +1,42 @@
+page-payment {
+	.total-tickets{
+		background-color:#999;
+		text-align: center;
+		color:#fff;
+		padding:10px;
+		font-family: "Oswald", serif;
+		font-size:14px;
+		line-height: 24px;
+		font-weight: normal!important;
+	}
+	.total-body{
+		font-family: "Oswald", serif;
+		color:#000 !important;
+	}
+	.inputs{
+		color:#333 !important;
+		font-size: 12px!important;
+		line-height: 18px!important;
+	}
+	.item-input .label-md, .item-select .label-md, .item-datetime .label-md {
+	    color: #000;
+	    font-family: "Oswald", serif !important;
+	}
+	.description{
+	    font-family: "Oswald", serif !important;
+	    font-size:18px;
+	    background-color:#fff!important;
+	}
+	.billing-label{
+	    font-family: "Oswald", serif !important;
+	    font-size:18px;
+	    font-size: 12px;
+	}
+	.card-header-md {
+	    border-bottom: 1px solid #ccc!important;
+	}
+	.payment-headers{
+		font-size: 14px;
+		line-height: 18px;
+	}
+}

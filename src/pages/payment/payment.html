@@ -1,0 +1,91 @@
+<ion-header style="height:115px">
+  <ion-navbar></ion-navbar>
+  <ion-fab class="filter-btn">
+    <button ion-fab (click)="dismiss()"><ion-icon name="close"></ion-icon></button>
+  </ion-fab>
+  <!--  pay -->
+  <div ion-button block color="danger" (click)="process()" style="font-size:12px;line-height:18px;font-family:oswald;margin:auto;width:90%;top:10px;">
+    <ion-label>Process Purchase</ion-label>
+    <ion-icon name="play"></ion-icon>
+  </div>
+</ion-header>
+
+<ion-content class="total-body" padding>
+
+  <div class="total-tickets">Qty: {{qty}} tickets<br>Total: $ {{total|number:'1.2-2'}}</div>
+
+  <ion-card *ngIf="total>0" class="description">
+    <ion-card-header ion-item>
+      <ion-icon item-left name="card"></ion-icon><span class="payment-headers">Credit Card</span>
+    </ion-card-header>
+    <ion-list inset>
+      <ion-item class="inputs" style="margin-left: -2px;">
+        <ion-label><ion-icon name="person"></ion-icon> Customer</ion-label>
+        <ion-input [(ngModel)]="cardholder" type="text" required="true" placeholder="John Doe"></ion-input>
+      </ion-item>
+      <ion-item class="inputs" style="margin-left: -2px;">
+        <ion-label><ion-icon name="card"></ion-icon> Card</ion-label>
+        <ion-input [(ngModel)]="card" type="card" required="true" placeholder="0000 0000 0000 0000"></ion-input>
+      </ion-item>
+      <ion-item class="inputs" style="left: -15px;">
+        <ion-label><ion-icon name="calendar"></ion-icon> Month</ion-label>
+        <ion-select [(ngModel)]="month">
+          <ion-option *ngFor="let m of months" value="{{m}}">{{m}}</ion-option>
+        </ion-select>
+      </ion-item>
+      <ion-item class="inputs" style="left: -15px;">
+        <ion-label><ion-icon name="calendar"></ion-icon> Year</ion-label>
+        <ion-select [(ngModel)]="year">
+          <ion-option *ngFor="let y of years" value="{{y}}">{{y}}</ion-option>
+        </ion-select>
+      </ion-item>
+      <ion-item class="inputs" style="margin-left: -2px;">
+        <ion-label><ion-icon name="lock"></ion-icon> CVV</ion-label>
+        <ion-input [(ngModel)]="cvv" type="number" required="true" placeholder="123"></ion-input>
+      </ion-item>
+    </ion-list>
+  </ion-card>
+
+  <ion-card class="description">
+    <ion-card-header ion-item>
+      <ion-icon item-left name="person-add"></ion-icon><span class="payment-headers">Billing Information</span>
+    </ion-card-header>
+    <ion-list inset>
+      <ion-item *ngIf="!total" class="inputs" style="margin-left: -2px;">
+        <ion-label><ion-icon name="person"></ion-icon> Full Name</ion-label>
+        <ion-input [(ngModel)]="cardholder" type="text" required="true" placeholder="John Doe"></ion-input>
+      </ion-item>
+      <ion-item class="inputs" style="margin-left: -2px;">
+        <ion-label><ion-icon name="compass"> <span class="billing-label">Address</span></ion-icon></ion-label>
+        <ion-input [(ngModel)]="address" type="text" required="true" placeholder="0000 Main St"></ion-input>
+      </ion-item>
+      <ion-item class="inputs" style="margin-left: -2px;">
+        <ion-label><ion-icon name="compass"> <span class="billing-label">City</span></ion-icon></ion-label>
+        <ion-input [(ngModel)]="city" type="text" required="true" placeholder="Las Vegas"></ion-input>
+      </ion-item>
+      <ion-item class="inputs" style="margin-left: -2px;">
+        <ion-label><ion-icon name="compass"> <span class="billing-label">State/Region</span></ion-icon></ion-label>
+        <ion-input [(ngModel)]="region" type="text" required="true" placeholder="NV"></ion-input>
+      </ion-item>
+      <ion-item class="inputs" style="left: -15px;">
+        <ion-label><ion-icon name="compass"> <span class="billing-label">Country</span></ion-icon></ion-label>
+        <ion-select [(ngModel)]="country">
+          <ion-option *ngFor="let c of countries" value="{{c.code}}">{{c.name}}</ion-option>
+        </ion-select>
+      </ion-item>
+      <ion-item class="inputs" style="margin-left: -2px;">
+        <ion-label><ion-icon name="code-working"> <span class="billing-label">Zip</span></ion-icon></ion-label>
+        <ion-input [(ngModel)]="zip" type="number" required="true" placeholder="#####"></ion-input>
+      </ion-item>
+      <ion-item class="inputs" style="margin-left: -2px;">
+        <ion-label><ion-icon name="call"> <span class="billing-label">Phone</span></ion-icon></ion-label>
+        <ion-input [(ngModel)]="phone" type="number" placeholder="##########"></ion-input>
+      </ion-item>
+      <ion-item class="inputs" style="margin-left: -2px;">
+        <ion-label><ion-icon name="mail"> <span class="billing-label">Email</span></ion-icon></ion-label>
+        <ion-input [(ngModel)]="email" type="email" required="true" placeholder="johndoe@gmail.com"></ion-input>
+      </ion-item>
+    </ion-list>
+  </ion-card>
+
+</ion-content>

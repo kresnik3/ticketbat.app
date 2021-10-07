@@ -1,0 +1,46 @@
+<ion-header>
+  <ion-navbar></ion-navbar>
+  <ion-searchbar class="shows-search" [(ngModel)]="search" placeholder="Search" (ionInput)="searchItems()"></ion-searchbar>
+  <ion-fab class="filter-btn">
+    <button ion-fab mini color="success"><ion-icon name="options"></ion-icon></button>
+    
+    <ion-fab-list class="tb-filter">
+      <ion-item button round color="light">
+        <ion-label><ion-icon name="pin"></ion-icon> <b [innerHTML]=" (location=='All')? 'All locations' : location"></b></ion-label>
+        <ion-select [(ngModel)]="location" (ionChange)="updateLocation()" style="width:0px !important;">
+          <ion-option value="All" hidden="true">All locations</ion-option>
+          <ion-option *ngFor="let c of cities" value="{{c.city}}" hidden="true">{{c.city}}</ion-option>
+        </ion-select>
+      </ion-item>
+      <ion-item button round color="light">
+        <ion-label><ion-icon name="aperture"></ion-icon> <b [innerHTML]="venue_name"></b></ion-label>
+        <ion-select [(ngModel)]="venue" (ionChange)="updateVenues()" style="width:0px !important;">
+          <ion-option value="All">All venues</ion-option>
+          <ion-option *ngFor="let v of venues" value="{{v.id}}" >{{v.name}}</ion-option>
+        </ion-select>
+      </ion-item>
+    </ion-fab-list>
+  </ion-fab>
+
+</ion-header>
+
+<ion-content padding>
+
+  <ion-card *ngFor="let s of shows" (click)="goToShowDetails(s.id)">
+    <img src="{{s.url}}"/>
+    <div class="show-info">
+      <div class="show-titles">
+        <div class="show-name">{{s.name}}</div>
+        <div class="show-city">{{s.city}}</div>
+      </div>
+      <div class="show-pricing">
+        <div class="show-starting">Starting At</div>
+        <div class="show-price" *ngIf="s.price">${{s.price|number:'1.2-2'}}</div>
+        <div class="show-price" *ngIf="!s.price">FREE</div>
+      </div>
+    </div>
+    <div class="get-tickets-show-btn">Get Tickets</div>
+
+  </ion-card>
+
+</ion-content>

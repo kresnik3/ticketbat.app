@@ -1,0 +1,14 @@
+<ion-header>
+  <ion-navbar></ion-navbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-slides pager zoom paginationType="fraction">
+    <ion-slide *ngFor="let t of tickets">
+      <p><b>Ticket # {{t.number}}</b></p>
+      <img  src="{{t.code}}"/>
+    </ion-slide>
+  </ion-slides>
+
+</ion-content>

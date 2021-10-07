@@ -1,0 +1,46 @@
+page-shoppingcart {
+  p,h2 {
+    color:black !important;
+    padding: 0 0 10px 0;
+  }
+  .upl {
+    margin:-3px 0 0 0;
+    text-align: right;
+    padding: 0 0 5px 0;
+  }
+  .upm {
+    margin:-8px 0 0 0;
+    text-align: right;
+    font-size: 14px;
+    padding: 0 0 5px 0;
+    font-family: "Oswald", serif;
+    color:#48a24a;
+  }
+  .qty {
+    background:transparent !important;
+    margin:-20px 0 20px -15px !important;
+    border-bottom-color: transparent !important;
+    font-family: "Oswald", serif;
+    font-size:14px;
+  }
+  .coupon-sect{
+    padding:20px 0;
+  }
+  .restrict-txt{
+    color:#ff0000;
+    padding: 10px 0;
+    font-size: 12px;
+  }
+  .tbcartprice{
+    text-align:right;
+    font-family:oswald;
+    color:#48a24a;
+    font-size: 14px;
+    line-height: 18px;
+  }
+  .tbcartlabel{
+    font-family: oswald;
+    font-size: 14px;
+    line-height: 20px;
+  }
+}

@@ -1,0 +1,18 @@
+<ion-header>
+  <ion-navbar></ion-navbar>
+  <ion-fab right bottom style="top:0px">
+    <button ion-fab (click)="submit()"><ion-icon name="checkmark"></ion-icon></button>
+  </ion-fab>
+</ion-header>
+
+<ion-content padding>
+
+  <ion-list padding>
+    <ion-card ion-item *ngFor="let t of tickets" class="description">
+      <ion-checkbox item-left checked=false (ionChange)="check(t)"></ion-checkbox>
+      <ion-icon name="pricetag"></ion-icon>
+      <ion-label item-right style="color:#000;font-family:oswald;font-size:12px;line-height: 18px;">Ticket # {{t}}</ion-label>
+    </ion-card>
+  </ion-list>
+
+</ion-content>

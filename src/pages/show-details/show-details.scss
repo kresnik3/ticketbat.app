@@ -1,0 +1,145 @@
+page-show-details {
+
+  .video-container {
+  position: relative;
+  padding-bottom: 56.25%;
+  padding-top: 30px; height: 0; overflow: hidden;
+  }
+  .video-container iframe,
+  .video-container object,
+  .video-container embed {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  .stIconRegular{
+    width:70px !important;
+    height:70px !important;
+  }
+
+  .stIconSelected{
+    width:80px !important;
+    height:80px !important;
+    border:5px #f53d3d solid;
+    border-radius: 15px;
+  }
+
+  .imagesS{
+    max-height: 92%;
+  }
+
+  .calendarS{
+    height: 25%;
+    max-height: 100%;
+  }
+  .calendarT{
+    height: 10%;
+    padding-bottom: 5%;
+  }
+  .calendar {
+    position: relative;
+    text-align: center;
+  }
+  .calendarW {
+    position: absolute;
+    top: 20%;
+    font-size: 0.5em;
+    width: 100%;
+    font-weight: bold;
+    color: black;
+  }
+  .calendarM {
+    top: 60%;
+    font-size: 12px; 
+    width: 100%;
+    color: #999;
+    font-family: "Oswald",serif;
+  }
+  .calendarD {
+    font-size: 12px;
+    position: absolute;
+    top: 39%;
+    line-height:14px;
+    width: 100%;
+    color: green;
+    font-family: "Oswald",serif;
+  }
+  .restrict-txt{
+    padding:10px;
+    margin:1px 10px 0;
+    background-color:#fff;
+    text-align: center;
+    color:#ff0000;
+    font-size: 11px;
+  }
+  p,h3 {
+    color: white !important;
+  }
+  .show-time-txt{
+    font-family: "Oswald", serif;
+    font-size: 18px;
+    font-weight: 300;
+  }
+  .show-slider{
+    background-color:#000;
+    height: 40%;
+  }
+  .show-get-tix {
+    padding: 10px 0 0;
+    margin: 1px 10px 0;
+  }
+  .show-col-tickets{
+    color:#000;
+    padding: 0px 20px;
+    background:#fff;
+    margin: 2px 10px;
+  }
+  .tb-btn-txt{
+    text-align: left;
+    font-family: "Oswald", serif;
+    font-weight: 200;
+  }
+  .tb-btn-sect{
+    font-family: "Oswald", serif;
+    font-weight: 400;
+    background-color: #333;
+    line-height: 18px;
+    font-size:14px;
+    text-transform: uppercase;
+  }
+  .show-col{
+    color:#000;
+    padding:20px;
+    background:#fff;
+    margin: 0 10px;
+    font-family: oswald;
+    font-weight: 100;
+    font-size: 14px;
+    line-height: 20px;
+  }
+  .show-dates{
+    color:#000;
+    padding:20px 20px 1px;
+    background:#fff;
+    margin: 10px;
+  }
+  .show-col-title{
+    text-align: center;
+    font-size: 18px;
+    text-transform: uppercase;
+    font-family: "Oswald", serif;
+    padding: 10px;
+    border:1px solid #ccc;
+    margin: 0 auto 10px;
+    width:50%;
+  }
+  .event-time{
+    padding: 10px 0;
+    text-align: center;
+    text-transform: uppercase;
+  }
+
+}

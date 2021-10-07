@@ -1,0 +1,13 @@
+page-mypurchases {
+
+	p {
+		color:#000 !important;
+		line-height:2!important;
+	}
+	.card-header-md + .card-content-md, .card-md .item + .card-content-md {
+	    padding-top: 10px;
+	    background: #fff;
+    	border-top: 1px solid #ccc;
+    }
+    
+}

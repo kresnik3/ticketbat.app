@@ -1,0 +1,36 @@
+page-mychecker {
+  	.select-md {
+	    padding: 13px 8px 13px 16px;
+	    color: #000!important;
+	    font-family:oswald;
+	    font-size:12px;
+	    line-height:18px;
+	}
+	.description {
+    	background: #fff !important;
+    	color: #000 !important;
+    	border: 3px white solid;
+   		border-radius: 15px;
+   		font-family:oswald;
+   		font-size:12px;
+   		line-height:18px;
+	}
+	.inputs {
+    	background: #fff !important;
+    	color: #000 !important;
+    	margin: -10px 0 0 0 !important;
+    	border-bottom-color: transparent !important;
+    	font-family:oswald;
+    	font-size:12px;
+    	line-height:18px;
+	}
+	.scan-tickets{
+		width:50%;
+		float:left;
+		text-align:center;
+		font-family:oswald;
+		text-transform:uppercase;
+		font-size:12px;
+    	line-height:18px;
+	}
+}

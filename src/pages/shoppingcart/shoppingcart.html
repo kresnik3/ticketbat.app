@@ -1,0 +1,105 @@
+<ion-header style="height:115px">
+  <ion-navbar></ion-navbar>
+  <ion-fab class="filter-btn">
+    <button ion-fab (click)="refresh()"><ion-icon name="refresh"></ion-icon></button>
+  </ion-fab>
+  <!--  pay -->
+  <div *ngIf="totals.quantity>0" ion-button block (click)="goToPayment()" style="margin:auto;width:95%;top:10px;">
+    <ion-label class="tbcartlabel">Checkout Now</ion-label>
+    <ion-icon name="play"></ion-icon>
+  </div>
+</ion-header>
+
+<ion-content>
+  <!--  empty cart -->
+  <div style="text-align:center;color:black !important" *ngIf="!totals.items.length">
+    <br><br><ion-icon item-left name="cart"></ion-icon>
+    <br><br>There are no items in the cart.<br>Please, add some!
+    <br><br><ion-icon item-left name="happy"></ion-icon>
+  </div>
+
+  <div *ngIf="totals.items.length">
+    <!--  totals -->
+    <button ion-item class="cart-col">
+      <ion-icon name="cash" item-left></ion-icon>
+      <ion-label class="tbcartlabel">Retail Price</ion-label>
+      <ion-label item-right class="tbcartprice">$ {{totals.retail_price|number:'1.2-2'}}</ion-label>
+    </button>
+    <button ion-item class="cart-col">
+      <ion-icon name="cash" item-left></ion-icon>
+      <ion-label class="tbcartlabel">Fees</ion-label>
+      <ion-label item-right class="tbcartprice">$ {{totals.processing_fee|number:'1.2-2'}}</ion-label>
+    </button>
+    <button ion-item *ngIf="totals.savings" class="cart-col">
+      <ion-icon name="cash" item-left></ion-icon>
+      <ion-label class="tbcartlabel">Savings</ion-label>
+      <ion-label item-right class="tbcartprice">$ {{totals.savings|number:'1.2-2'}}</ion-label>
+    </button>
+    <button ion-item class="cart-col">
+      <ion-icon name="cash" item-left></ion-icon>
+      <ion-label class="tbcartlabel">Grand Total</ion-label>
+      <ion-label item-right class="tbcartprice">$ {{totals.total|number:'1.2-2'}}</ion-label>
+    </button>
+    <!--  coupon -->
+    <div class="coupon-sect">
+    <div ion-button block color="secondary" *ngIf="!totals.coupon" (click)="coupon_add()" style="width:95%;margin:auto">
+      <ion-label item-right class="tbcartlabel">Add Special Offer Code!</ion-label>
+      <ion-icon name="add-circle"></ion-icon>
+    </div>
+    <div ion-button block large color="secondary" *ngIf="totals.coupon" (click)="coupon_remove()" style="margin:auto">
+      <ion-label item-right>Coupon: {{totals.coupon}}<br><p style="font-size:9px">{{totals.coupon_description}}</p></ion-label>
+      <ion-icon name="remove-circle"></ion-icon>
+    </div>
+    </div>
+    <!--  list -->
+    <ion-list >
+      <ion-card *ngFor="let s of totals.items, let i = index" class="cart-col">
+        <ion-card-header class="tbcartlabel" ion-item *ngIf="s.unavailable==0">
+          Event #{{i+1}}
+          <button ion-button clear item-right icon-only  (click)="remove(s.id)">
+            <ion-icon item-right name="remove-circle" color="danger"></ion-icon>
+          </button>
+        </ion-card-header>
+        <ion-card-header ion-item color="danger" *ngIf="s.unavailable!=0">
+          <ion-icon item-left name="warning"></ion-icon> {{s.unavailable}}
+          <button ion-button  clear item-right icon-only  (click)="remove(s.id)">
+            <ion-icon item-right color="light" name="remove-circle" ></ion-icon>
+          </button>
+        </ion-card-header>
+          <ion-card-content>
+            <ion-row>
+              <ion-col col-8>
+                <p class="tbcartlabel"><ion-icon item-left name="aperture"></ion-icon> {{s.name}}</p>
+                <p class="tbcartlabel"><ion-icon item-left name="clock"></ion-icon> {{s.show_time | date:'EEE, M/d/y @ h:mma'}}</p>
+                <p class="tbcartlabel"><ion-icon item-left name="cash"></ion-icon> ${{s.cost_per_product}} each.</p>
+                <p class="tbcartlabel"><ion-icon item-left name="pricetags"></ion-icon> {{s.number_of_items}} {{s.product_type}} {{s.package}}</p>
+              </ion-col>
+              <ion-col col-4 style="text-align:center;">
+                <ion-label class="upl tbcartlabel">Subtotal</ion-label>
+                <ion-label class="upm">$ {{(s.total_cost-s.processing_fee)|number:'1.2-2'}}</ion-label>
+                <ion-label class="upl tbcartlabel">Fees</ion-label>
+                <ion-label class="upm">$ {{s.processing_fee|number:'1.2-2'}}</ion-label>
+                <ion-label class="upl tbcartlabel">Total</ion-label>
+                <ion-label class="upm">$ {{s.total_cost|number:'1.2-2'}}</ion-label>
+              </ion-col>
+              <ion-col col-12>
+                <div ion-item *ngIf="s.unavailable==0" class="qty">
+                  <ion-label><ion-icon item-left name="pricetags"></ion-icon>Qty</ion-label>
+                  <ion-input item-right type="number" [(ngModel)]="s.number_of_items" [attr.min]="1" [attr.max]="99" [attr.step]="1" required="true" (change)="update(i)"></ion-input>
+                </div>
+              </ion-col>
+            </ion-row>
+            <div class="restrict-txt">
+              <div *ngIf="s && s.restrictions != '' " style="margin:-25px 0 0 0;">
+                  <ion-icon name="information-circle"></ion-icon> RESTRICTIONS: {{s.restrictions.replace('Over','')}}  years of age or older to attend the event.
+              </div>
+            </div>
+          </ion-card-content>
+        </ion-card>
+    </ion-list>
+
+  </div>
+
+
+
+</ion-content>
